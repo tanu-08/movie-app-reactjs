@@ -8,10 +8,16 @@ class MovieCard extends Component{
             plot: "SuperNatural Powers are shown",
             price: 199,
             rating: 8.9,
+            stars: 0
         }
     }
+    addStars =() =>{
+        this.setState({
+            stars: this.state.stars+0.5
+        })
+    }
     render(){
-        const {title,plot,price,rating} = this.state;
+        const {title,plot,price,rating,stars} = this.state;
         return (
             <div className="main">
                 <div className="movie-card">
@@ -25,10 +31,10 @@ class MovieCard extends Component{
                         <div className="footer">
                             <div className="rating">8.9</div>
                             <div className="star-dis">
-                                <img alt="increase" src="https://cdn-icons-png.flaticon.com/128/2997/2997933.png" className="str-btn"/>
+                                <img alt="increase" src="https://cdn-icons-png.flaticon.com/128/2997/2997933.png" className="str-btn" onClick={this.addStars}/>
                                 <img alt="stars" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" className="stars"/>
-                                <img alt="decrease" src="https://cdn-icons-png.flaticon.com/128/43/43625.png" className="str-btn"/>0
-                               
+                                <img alt="decrease" src="https://cdn-icons-png.flaticon.com/128/43/43625.png" className="str-btn"/>
+                                <span className="stars">{stars}</span>
                             </div>
                             <button className="favourite-btn">Favorite</button>
                             <button className="cart-btn">Add to Cart</button>
